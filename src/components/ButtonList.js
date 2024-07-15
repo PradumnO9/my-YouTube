@@ -18,7 +18,7 @@ const buttonList = [
 
 const ButtonList = () => {
   return (
-    <div className="flex overflow-x-auto buttonList-scroll">
+    <div className="flex overflow-x-scroll buttonList-scroll">
       {buttonList.map((button, index) => {
         return <Button key={index} name={button} />;
       })}

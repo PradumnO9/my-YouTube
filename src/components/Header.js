@@ -6,6 +6,7 @@ import { toggleMenu } from "../redux/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { CiSearch } from "react-icons/ci";
 import { casheResults } from "../redux/searchSlice";
+import usePopularVideos from "../utils/usePopularVideos";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -17,6 +18,9 @@ const Header = () => {
   const handleHamBurgerToggle = () => {
     dispatch(toggleMenu());
   };
+
+  // updating redux store => popularVideos
+  usePopularVideos();
 
   useEffect(() => {
     // make an api call after every key press

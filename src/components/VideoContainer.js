@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { YOUTUBE_VIDEOS_API } from "../utils/constants";
+import React from "react";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Shimmer from "../utils/Shimmer";
 
 const VideoContainer = () => {
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    getVideos();
-  }, []);
-
-  const getVideos = async () => {
-    const data = await fetch(YOUTUBE_VIDEOS_API);
-    const json = await data.json();
-    setVideos(json?.items);
-  };
+  const videos = useSelector(store => store.videos.mostPopularVideos);
+  if (!videos) return <h1><Shimmer /></h1>
 
   return (
     <div className="flex flex-wrap">
