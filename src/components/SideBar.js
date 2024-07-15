@@ -9,6 +9,7 @@ import { BiSolidCameraMovie } from "react-icons/bi";
 import { SiYoutubegaming } from "react-icons/si";
 import { useSelector } from "react-redux";
 import { FaRegUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
 
@@ -20,9 +21,9 @@ const SideBar = () => {
   return (
     <div className="p-5 shadow-lg w-48">
       <ul className="mb-3">
-        <li className="flex items-center py-2">
+        <li className="flex items-center py-2 hover:bg-gray-100">
           <MdHomeFilled size={20} />
-          <h1 className="ml-5">Home</h1>
+          <Link to={"/"}><h1 className="ml-5">Home</h1></Link>
         </li>
         <li className="flex items-center py-2">
           <SiYoutubeshorts size={20} />

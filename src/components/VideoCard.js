@@ -2,11 +2,10 @@ import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 
 const VideoCard = ({ info }) => {
-  console.log(info);
   const { snippet, statistics } = info;
   const { channelTitle, thumbnails, title } = snippet;
   return (
-    <div className="p-2 m-2 w-80">
+    <div className="p-2 m-2 w-80 hover:scale-105 ease-out duration-150">
       <img className="rounded-xl"src={thumbnails?.high?.url} alt={channelTitle} />
       <div className="flex">
       <FaUserCircle className="mt-2 mx-3" size={30} />
