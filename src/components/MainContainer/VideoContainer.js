@@ -2,11 +2,16 @@ import React from "react";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Shimmer from "../utils/Shimmer";
+import Shimmer from "../../utils/Shimmer";
 
 const VideoContainer = () => {
-  const videos = useSelector(store => store.videos.mostPopularVideos);
-  if (!videos) return <h1><Shimmer /></h1>
+  const videos = useSelector((store) => store.videos.mostPopularVideos);
+  if (!videos)
+    return (
+      <h1>
+        <Shimmer />
+      </h1>
+    );
 
   return (
     <div className="flex flex-wrap">

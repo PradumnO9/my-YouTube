@@ -3,8 +3,8 @@ import Body from "./components/Body";
 import Header from "./components/Header";
 import appStore from "./redux/appStore";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainContainer from "./components/MainContainer";
-import WatchPage from "./components/WatchPage";
+import MainContainer from "./components/MainContainer/MainContainer";
+import WatchPage from "./components/WatchPage/WatchPage";
 
 const appRouter = createBrowserRouter([
   {

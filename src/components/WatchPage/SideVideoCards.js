@@ -17,6 +17,11 @@ const SideVideoCards = ({ info }) => {
           <li>{statistics?.viewCount} views</li>
         </ul>
       </div>
+      <img
+        className="w-10 h-10 mt-[4px]"
+        alt="dots"
+        src="https://static.thenounproject.com/png/3560972-200.png"
+      />
     </div>
   );
 };
