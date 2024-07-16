@@ -11,4 +11,5 @@
 - Add Shimmer UI before loading video data
 - Search using -> live API, Debouncing, Caching
 - Added Side Video cards for watch page
-- Custom Hook -> usePopularVideos
+- Custom Hook -> usePopularVideos, useVideoComments
+- Successfully fetch top 50 comments for a particular video

@@ -13,7 +13,7 @@ const useVideoComments = (searchParams) => {
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [searchParams]);
 };
 
 export default useVideoComments;

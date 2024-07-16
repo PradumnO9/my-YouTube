@@ -5,7 +5,6 @@ import OneComment from "./OneComment";
 const Comments = () => {
   const videoComments = useSelector((store) => store.videos.videoComments);
   if (!videoComments) return <h1>Loading...</h1>;
-  console.log(videoComments[0]);
   return (
     <div>
       {videoComments.map((comment) => {
