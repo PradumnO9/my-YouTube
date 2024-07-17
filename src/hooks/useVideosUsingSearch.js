@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { YOUTUBE_SEARCH_USING_SEARCHQUERY_API } from "./constants";
+import { YOUTUBE_SEARCH_USING_SEARCHQUERY_API } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addSearchedVideos } from "../redux/videosSlice";
 

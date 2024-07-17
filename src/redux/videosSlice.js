@@ -3,12 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const videosSlice = createSlice({
   name: "videos",
   initialState: {
+    popularVideos: null,
     searchedVideos: null,
     videoComments: null,
     videoDetails: null,
     searchText: "",
   },
   reducers: {
+    addPopularVideos: (state, action) => {
+      state.popularVideos = action.payload
+    },
     addSearchedVideos: (state, action) => {
       state.searchedVideos = action.payload;
     },
@@ -25,6 +29,7 @@ const videosSlice = createSlice({
 });
 
 export const {
+  addPopularVideos,
   addSearchedVideos,
   addOneVideoComments,
   addVideoDetails,

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { YOUTUBE_COMMENT_API } from "./constants";
+import { YOUTUBE_COMMENT_API } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addOneVideoComments } from "../redux/videosSlice";
 

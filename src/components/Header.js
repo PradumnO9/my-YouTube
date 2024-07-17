@@ -6,7 +6,7 @@ import { toggleMenu } from "../redux/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { CiSearch } from "react-icons/ci";
 import { casheResults } from "../redux/searchSlice";
-import useVideosUsingSearch from "../utils/useVideosUsingSearch";
+import useVideosUsingSearch from "../hooks/useVideosUsingSearch";
 import { addSearchText } from "../redux/videosSlice";
 
 const Header = () => {
@@ -21,7 +21,7 @@ const Header = () => {
     dispatch(toggleMenu());
   };
 
-  // updating redux store => 
+  // updating redux store => searchVideos
   useVideosUsingSearch(searchText);
 
   useEffect(() => {

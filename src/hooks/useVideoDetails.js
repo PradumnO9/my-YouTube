@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { VIDEO_DETAILS_API } from "./constants";
+import { VIDEO_DETAILS_API } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addVideoDetails } from "../redux/videosSlice";
 
