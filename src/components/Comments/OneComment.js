@@ -14,7 +14,7 @@ const OneComment = ({ comment }) => {
       <div className="px-3">
         <h1 className="font-bold">{authorDisplayName}</h1>
         <p>{textOriginal}</p>
-        <p className="flex items-center mt-2">
+        <div className="flex items-center mt-2">
           <div className="cursor-pointer p-1 hover:bg-gray-300 rounded-full">
             <AiOutlineLike size={20} />
           </div>
@@ -22,7 +22,7 @@ const OneComment = ({ comment }) => {
           <h1 className="text-sm ml-5 cursor-pointer p-1 font-bold hover:bg-gray-300 rounded-full">
             Reply
           </h1>
-        </p>
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,8 @@ import { toggleMenu } from "../redux/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { CiSearch } from "react-icons/ci";
 import { casheResults } from "../redux/searchSlice";
-import usePopularVideos from "../utils/usePopularVideos";
+import useVideosUsingSearch from "../utils/useVideosUsingSearch";
+import { addSearchText } from "../redux/videosSlice";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,13 +15,14 @@ const Header = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const searchCache = useSelector((store) => store.search);
+  const searchText = useSelector(store => store.videos.searchText);
   const dispatch = useDispatch();
   const handleHamBurgerToggle = () => {
     dispatch(toggleMenu());
   };
 
-  // updating redux store => popularVideos
-  usePopularVideos();
+  // updating redux store => 
+  useVideosUsingSearch(searchText);
 
   useEffect(() => {
     // make an api call after every key press
@@ -84,7 +86,12 @@ const Header = () => {
               setShowSuggestions(false);
             }}
           />
-          <button className="border border-gray-400 rounded-r-full bg-gray-300 hover:bg-gray-200 p-2">
+          <button
+            className="border border-gray-400 rounded-r-full bg-gray-300 hover:bg-gray-200 p-2"
+            onClick={() => {
+              dispatch(addSearchText(searchQuery));
+            }}
+          >
             Search
           </button>
           {showSuggestions && (

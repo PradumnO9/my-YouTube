@@ -4,12 +4,18 @@ import OneComment from "./OneComment";
 
 const Comments = () => {
   const videoComments = useSelector((store) => store.videos.videoComments);
-  if (!videoComments) return <h1>Loading...</h1>;
+  if (!videoComments) return;
   return (
     <div>
+      <h1 className="font-bold text-2xl py-2">
+        {videoComments.length} Comments
+      </h1>
       {videoComments.map((comment) => {
         return (
-          <OneComment comment={comment?.snippet?.topLevelComment?.snippet} />
+          <OneComment
+            key={comment.id}
+            comment={comment?.snippet?.topLevelComment?.snippet}
+          />
         );
       })}
     </div>

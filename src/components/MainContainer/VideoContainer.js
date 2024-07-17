@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 import Shimmer from "../../utils/Shimmer";
 
 const VideoContainer = () => {
-  const videos = useSelector((store) => store.videos.mostPopularVideos);
-  if (!videos)
+  const searchedVideos = useSelector((store) => store.videos.searchedVideos);
+  if (!searchedVideos)
     return (
       <h1>
         <Shimmer />
@@ -15,9 +15,9 @@ const VideoContainer = () => {
 
   return (
     <div className="flex flex-wrap">
-      {videos.map((video) => {
+      {searchedVideos.map((video) => {
         return (
-          <Link key={video.id} to={`/watch?v=${video.id}`}>
+          <Link key={video.id.videoId} to={`/watch?v=${video.id.videoId}`}>
             <VideoCard info={video} />
           </Link>
         );

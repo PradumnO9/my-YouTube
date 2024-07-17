@@ -5,7 +5,7 @@ import SideVideoCard from "./SideVideoCards";
 import Shimmer from "../../utils/Shimmer";
 
 const WatchPageContent = () => {
-  const videos = useSelector((store) => store.videos.mostPopularVideos);
+  const videos = useSelector((store) => store.videos.searchedVideos);
   if (!videos)
     return (
       <h1>
@@ -16,7 +16,7 @@ const WatchPageContent = () => {
     <div>
       {videos?.map((video) => {
         return (
-          <Link key={video.id} to={`/watch?v=${video.id}`}>
+          <Link key={video.id.videoId} to={`/watch?v=${video.id.videoId}`}>
             <SideVideoCard info={video} />
           </Link>
         );
