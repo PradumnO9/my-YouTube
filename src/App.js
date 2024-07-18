@@ -5,6 +5,7 @@ import appStore from "./redux/appStore";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainContainer from "./components/MainContainer/MainContainer";
 import WatchPage from "./components/WatchPage/WatchPage";
+import LiveChat from "./components/Comments/LiveChat";
 
 const appRouter = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/watch",
         element: <WatchPage />
+      },
+      {
+        path: "live-chat",
+        element: <LiveChat />
       }
     ]
   }

@@ -15,7 +15,7 @@ const Header = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const searchCache = useSelector((store) => store.search);
-  const searchText = useSelector(store => store.videos.searchText);
+  const searchText = useSelector((store) => store.videos.searchText);
   const dispatch = useDispatch();
   const handleHamBurgerToggle = () => {
     dispatch(toggleMenu());
@@ -70,7 +70,11 @@ const Header = () => {
         />
       </div>
       <div className="col-span-10 ml-40">
-        <div>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <input
             className="w-1/2 border border-gray-400 rounded-l-full py-2 px-5"
             type="text"
@@ -110,7 +114,7 @@ const Header = () => {
               </ul>
             </div>
           )}
-        </div>
+        </form>
       </div>
       <div className="col-span-1">
         <FaUserCircle size={35} />

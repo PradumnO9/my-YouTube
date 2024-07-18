@@ -1,4 +1,4 @@
-const GOOGLE_API_KEY = "AIzaSyAVY3laz5MUDplkeAhyl8uCAuytZ9uGafI";
+const GOOGLE_API_KEY = "AIzaSyB_rA7VBYKPMArXH0W0YbTNwFhTnFA3ELk";
 
 // Popular Video API
 export const YOUTUBE_VIDEOS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${GOOGLE_API_KEY}`;
@@ -11,5 +11,7 @@ export const YOUTUBE_COMMENT_API = `https://www.googleapis.com/youtube/v3/commen
 export const YOUTUBE_SEARCH_USING_SEARCHQUERY_API = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&regionCode=IN&type=video&key=${GOOGLE_API_KEY}&q=`;
 
 export const VIDEO_DETAILS_API = `https://www.googleapis.com/youtube/v3/videos?part=id%2C+snippet&key=${GOOGLE_API_KEY}&id=`;
+
+export const LIVE_CHAT_COUNT = 25;
 
 // https://console.cloud.google.com/apis/credentials?project=powerful-hall-399506 => for GOOGLE_API_KEY

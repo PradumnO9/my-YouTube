@@ -14,3 +14,4 @@
 - Custom Hook -> usePopularVideos, useVideoComments, useVideoDetails, useVideoUsingSearch
 - Successfully fetch top 50 comments for a particular video
 - Fetch particular video details for watch page
+- Implement Live Chat Functionality like YouTube

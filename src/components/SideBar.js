@@ -9,6 +9,7 @@ import { BiSolidCameraMovie } from "react-icons/bi";
 import { SiYoutubegaming } from "react-icons/si";
 import { useSelector } from "react-redux";
 import { FaRegUserCircle } from "react-icons/fa";
+import { SiLivechat } from "react-icons/si";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
@@ -21,17 +22,21 @@ const SideBar = () => {
   return (
     <div className="p-5 shadow-lg w-48">
       <ul className="mb-3">
-        <li className="flex items-center py-2 hover:bg-gray-100">
+        <li className="flex items-center p-2 hover:bg-gray-100">
           <MdHomeFilled size={20} />
           <Link to={"/"}><h1 className="ml-5">Home</h1></Link>
         </li>
-        <li className="flex items-center py-2">
+        <li className="flex items-center p-2">
           <SiYoutubeshorts size={20} />
           <h1 className="ml-5">Shorts</h1>
         </li>
-        <li className="flex items-center py-2">
+        <li className="flex items-center p-2">
           <MdOutlineSubscriptions size={20} />
           <h1 className="ml-5">Subscriptions</h1>
+        </li>
+        <li className="flex items-center p-2 hover:bg-gray-100">
+          <SiLivechat size={20} />
+          <Link to={"/live-chat"}><h1 className="ml-5">Live Chat</h1></Link>
         </li>
       </ul>
       <hr />
