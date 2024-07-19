@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../redux/appSlice";
+import { casheResults } from "../redux/searchSlice";
+import { addSearchText } from "../redux/videosSlice";
+import { addUser, removeUser } from "../redux/userSlice";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { CiSearch } from "react-icons/ci";
-import { casheResults } from "../redux/searchSlice";
-import useVideosUsingSearch from "../hooks/useVideosUsingSearch";
-import { addSearchText } from "../redux/videosSlice";
-import { Link, useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { addUser, removeUser } from "../redux/userSlice";
+import useVideosUsingSearch from "../hooks/useVideosUsingSearch";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [profileToggle, setProfileToggle] = useState(false);
 
   const searchCache = useSelector((store) => store.search);
   const searchText = useSelector((store) => store.videos.searchText);
@@ -95,22 +96,22 @@ const Header = () => {
         {currentUser && (
           <RxHamburgerMenu
             onClick={handleHamBurgerToggle}
-            className="cursor-pointer"
+            className="cursor-pointer invisible md:visible"
             size={30}
           />
         )}
         <img
-          className="w-36 m-2"
+          className="w-36 mx-3 my-2"
           alt="logo"
           src="https://upload.wikimedia.org/wikipedia/commons/3/34/YouTube_logo_%282017%29.png"
         />
         {currentUser && (
-          <h1 className="py-1 px-2 bg-red-500 rounded-lg shadow-lg text-white mx-2 cursor-pointer">
-            {currentUser.name}
+          <h1 className="invisible md:visible py-1 px-3 bg-red-500 rounded-lg shadow-lg text-white mx-1 cursor-pointer">
+            {currentUser?.name}
           </h1>
         )}
       </div>
-      <div className="col-span-10 ml-40">
+      <div className="col-span-10 ml-40 hidden md:block">
         {currentUser && (
           <form
             onSubmit={(e) => {
@@ -167,12 +168,66 @@ const Header = () => {
         {currentUser && (
           <>
             <img
-              className="w-10 h-10 rounded-full"
+              className="w-10 h-10 mr-5 md:mr-0 rounded-full cursor-pointer md:cursor-text"
               alt="profile"
               src={currentUser?.profilePhoto}
+              onClick={() => {
+                setProfileToggle(!profileToggle);
+              }}
             />
+            {profileToggle && (
+              <div className="visible md:hidden absolute w-[95%] z-30 -ml-[81%] text-center -mb-72 rounded-lg shadow-md bg-gradient-to-t from-black p-2">
+                <h1 className="py-1 px-3 my-4 bg-red-500 rounded-lg shadow-lg text-white mx-1 cursor-pointer">
+                  {currentUser?.name}
+                </h1>
+                <Link
+                  className="px-[43%] py-2 m-2 bg-green-500 rounded-lg font-bold text-white hover:bg-green-400"
+                  to="/"
+                >
+                  Home
+                </Link>
+                <div className="flex my-4">
+                  <input
+                    className="w-full border border-gray-400 rounded-l-full py-2 px-5"
+                    type="text"
+                    placeholder="Search"
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                    }}
+                    onFocus={() => {
+                      setShowSuggestions(true);
+                    }}
+                    onBlur={() => {
+                      setShowSuggestions(false);
+                    }}
+                  />
+                  <img
+                    className="border border-gray-400 rounded-r-full bg-gray-300 hover:bg-gray-200 px-3 py-2 cursor-pointer"
+                    onClick={() => {
+                      dispatch(addSearchText(searchQuery));
+                    }}
+                    alt="search"
+                    width={50}
+                    src="https://cdn-icons-png.flaticon.com/256/149/149309.png"
+                  />
+                </div>
+                <Link
+                  className="px-[41%] py-2 m-2 bg-purple-500 rounded-lg font-bold text-white hover:bg-green-400"
+                  to="/live-chat"
+                >
+                  LiveChat
+                </Link>
+                <button
+                  className="px-[43%] py-2 mt-4 bg-red-500 rounded-lg font-bold text-white hover:bg-red-400"
+                  onClick={handleLogOut}
+                >
+                  Logout
+                </button>
+              </div>
+            )}
             <button
-              className="px-3 py-2 m-2 bg-red-500 rounded-lg font-bold text-white hover:bg-red-400"
+              className="hidden md:block px-3 py-2 m-2 bg-red-500 rounded-lg font-bold text-white hover:bg-red-400"
               onClick={handleLogOut}
             >
               Logout
@@ -181,7 +236,7 @@ const Header = () => {
         )}
         {!currentUser && (
           <Link
-            className="px-3 py-2 m-2 bg-green-500 rounded-lg font-bold text-white hover:bg-green-400"
+            className="px-3 -mr-20 py-2 m-2 bg-green-500 rounded-lg font-bold text-white hover:bg-green-400"
             to="/login"
           >
             Login

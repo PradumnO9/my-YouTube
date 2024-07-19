@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SideVideoCard from "./SideVideoCards";
 import Shimmer from "../../utils/Shimmer";
-import ButtonList from "../MainContainer/ButtonList";
 
 const WatchPageContent = () => {
   const videos = useSelector((store) => store.videos.searchedVideos);

@@ -26,13 +26,11 @@ const WatchPage = () => {
   const { channelTitle, title, description } = videoDetails[0]?.snippet;
 
   return (
-    <div className="flex my-5">
+    <div className="md:flex my-5">
       <div className="ml-10 w-4/6">
         <div>
           <iframe
-            className="rounded-xl"
-            width="900"
-            height="500"
+            className="rounded-xl md:w-[900px] md:h-[500px]"
             src={`https://www.youtube.com/embed/${searchParams.get(
               "v"
             )}?autoplay=1`}
@@ -52,7 +50,7 @@ const WatchPage = () => {
             <div className="flex ml-[51%] cursor-pointer p-2 bg-gray-300 rounded-3xl hover:bg-gray-200">
               <button className="px-2">
                 <AiOutlineLike size={27} />
-              </button>{" "}
+              </button>
               <button className="px-2">
                 <AiOutlineDislike size={27} />
               </button>

@@ -1,11 +1,13 @@
 import { Provider } from "react-redux";
-import Body from "./components/Body";
-import appStore from "./redux/appStore";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import MainContainer from "./components/MainContainer/MainContainer";
 import WatchPage from "./components/WatchPage/WatchPage";
+import Body from "./components/Body";
 import LiveChat from "./components/Comments/LiveChat";
 import Login from "./components/Login";
+import appStore from "./redux/appStore";
+import CommentsContainer from "./components/Comments/CommentsContainer";
 
 const appRouter = createBrowserRouter([
   {
@@ -25,8 +27,12 @@ const appRouter = createBrowserRouter([
         element: <WatchPage />
       },
       {
-        path: "live-chat",
+        path: "/live-chat",
         element: <LiveChat />
+      },
+      {
+        path: "/nested-comments",
+        element: <CommentsContainer />
       }
     ]
   }

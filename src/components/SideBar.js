@@ -1,4 +1,5 @@
 import React from "react";
+
 import { MdHomeFilled } from "react-icons/md";
 import { SiYoutubeshorts } from "react-icons/si";
 import { MdOutlineSubscriptions } from "react-icons/md";
@@ -10,6 +11,7 @@ import { SiYoutubegaming } from "react-icons/si";
 import { useSelector } from "react-redux";
 import { FaRegUserCircle } from "react-icons/fa";
 import { SiLivechat } from "react-icons/si";
+import { FaRegComments } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
@@ -22,7 +24,7 @@ const SideBar = () => {
   return (
     <>
       {currentUser && (
-        <div className="p-5 shadow-lg w-[15%]">
+        <div className="p-5 shadow-lg w-[15%] hidden md:block">
           <ul className="mb-3">
             <li className="flex items-center p-2 hover:bg-gray-100">
               <MdHomeFilled size={20} />
@@ -42,6 +44,12 @@ const SideBar = () => {
               <SiLivechat size={20} />
               <Link to={"/live-chat"}>
                 <h1 className="ml-5">Live Chat</h1>
+              </Link>
+            </li>
+            <li className="flex items-center p-2 hover:bg-gray-100">
+              <FaRegComments size={20} />
+              <Link to={"/nested-comments"}>
+                <h1 className="ml-5">Nested Comments</h1>
               </Link>
             </li>
           </ul>

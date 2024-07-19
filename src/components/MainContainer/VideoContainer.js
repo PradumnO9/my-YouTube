@@ -12,7 +12,7 @@ const VideoContainer = () => {
 
   usePopularVideos();
 
-  if (!popularVideos || !searchedVideos)
+  if (!popularVideos)
     return (
       <h1>
         <Shimmer />
@@ -33,7 +33,7 @@ const VideoContainer = () => {
         </div>
       ) : (
         <div className="flex flex-wrap">
-          {searchedVideos.map((video) => {
+          {searchedVideos?.map((video) => {
             return (
               <Link key={video.id.videoId} to={`/watch?v=${video.id.videoId}`}>
                 <VideoCard info={video} />
