@@ -4,7 +4,7 @@ const VideoCard = ({ info }) => {
   const { snippet, statistics } = info;
   const { channelTitle, thumbnails, title } = snippet;
   return (
-    <div className="p-2 m-2 w-[19rem] hover:scale-105 ease-out duration-150">
+    <div className="p-2 m-2 w-[287px] hover:scale-105 ease-out duration-150">
       <img
         className="rounded-xl"
         src={thumbnails?.high?.url}

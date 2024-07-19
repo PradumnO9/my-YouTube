@@ -13,7 +13,10 @@ const buttonList = [
   "ArigitSingh",
   "Live",
   "JavaScript",
-  "SmartPhones"
+  "SmartPhones",
+  "Instrumental",
+  "Bollywood",
+  "Movies"
 ];
 
 const ButtonList = () => {

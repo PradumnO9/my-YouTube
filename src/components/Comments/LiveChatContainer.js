@@ -26,7 +26,7 @@ const LiveChatContainer = () => {
 
   return (
     <div>
-      <div className="mx-2 p-2 w-full h-[500px] border border-black bg-slate-100  rounded-tl-lg rounded-tr-lg overflow-y-scroll flex flex-col-reverse">
+      <div className="mx-2 p-2 w-full h-[450px] border border-black bg-slate-100  rounded-tl-lg rounded-tr-lg overflow-y-scroll flex flex-col-reverse">
         {chatMessages.map((chat, index) => {
           return (
             <LiveChatMessage
