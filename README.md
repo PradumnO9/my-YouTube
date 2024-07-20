@@ -31,6 +31,27 @@
 - Lazy loading for faster load
 - Responsive for mobile size => using Tailwind
 
+# App Structure
+
+- Login
+    - Login with Google Account
+    - Redirect to App Body
+- Body
+    - Header
+    - SideBar
+    - MainContainer
+        - ButtonList * N
+        - VideoContainer 
+            - VideoCard * N
+- WatchPage
+    - VideoIframe
+    - Comments
+        - Comment * N
+    - SideVideoCards
+- LiveChat
+    - VideoIframe
+    - LiveChatContainer
+
 # Clone 
 
 - Clone this repository to your system
