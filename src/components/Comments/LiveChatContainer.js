@@ -8,6 +8,7 @@ const LiveChatContainer = () => {
   const [liveMessage, setLiveMessage] = useState("");
   const dispatch = useDispatch();
   const chatMessages = useSelector((store) => store.chat.messages);
+  const user = useSelector(store => store.user.currentUser);
 
   useEffect(() => {
     // Here we can call API for live chat data
@@ -43,7 +44,7 @@ const LiveChatContainer = () => {
           e.preventDefault();
           dispatch(
             addMessage({
-              name: "Padumn",
+              name: user.name,
               message: liveMessage,
             })
           );
