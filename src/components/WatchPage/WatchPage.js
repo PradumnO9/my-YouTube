@@ -27,11 +27,11 @@ const WatchPage = () => {
   const { channelTitle, title, description } = videoDetails[0]?.snippet;
 
   return (
-    <div className="md:flex my-5">
-      <div className="ml-2 md:ml-10 w-full md:w-4/6">
+    <div className="md:flex md:my-5">
+      <div className="md:ml-10 w-full md:w-4/6">
         <div>
           <iframe
-            className="rounded-xl w-[96%] h-[300px] md:w-[900px] md:h-[500px]"
+            className="rounded-xl w-full h-[300px] md:w-[900px] md:h-[500px]"
             src={`https://www.youtube.com/embed/${searchParams.get(
               "v"
             )}?autoplay=1`}
@@ -42,8 +42,8 @@ const WatchPage = () => {
           ></iframe>
         </div>
         <div className="py-3">
-          <h1 className="font-bold text-xl md:text-2xl">{title}</h1>
-          <div className="flex items-center py-2">
+          <h1 className="font-bold text-xl ml-1 md:ml-0 md:text-2xl">{title}</h1>
+          <div className="flex items-center py-2 w-full">
             <div className="ml-[2%] md:flex items-center">
               <h1 className="font-bold text-lg text-center">{channelTitle}</h1>
               <button className="bg-black text-white px-3 py-2 rounded-3xl hover:bg-opacity-85 ml-0 md:ml-3">
@@ -64,7 +64,7 @@ const WatchPage = () => {
             </div>
           </div>
           {description && (
-            <p className="bg-gray-200 p-2 w-[95%] md:w-full rounded-lg h-32 overflow-y-auto">
+            <p className="bg-gray-200 p-2 w-full rounded-lg h-32 overflow-y-auto buttonList-scroll">
               {description}
             </p>
           )}
@@ -73,7 +73,7 @@ const WatchPage = () => {
           <Comments />
         </div>
       </div>
-      <div className="ml-3 p-2">
+      <div className="md:ml-3 md:px-2">
         <WatchPageContent />
       </div>
     </div>

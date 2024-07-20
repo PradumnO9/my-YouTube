@@ -6,8 +6,8 @@ const Comments = () => {
   const videoComments = useSelector((store) => store.videos.videoComments);
   if (!videoComments) return;
   return (
-    <div className="w-[95%] md:w-full">
-      <h1 className="font-bold text-2xl py-2">
+    <div className="w-full md:w-full">
+      <h1 className="font-bold text-2xl py-2 px-1">
         {videoComments.length} Comments
       </h1>
       <div className="h-56 overflow-y-scroll buttonList-scroll w-full md:h-full">{videoComments.map((comment) => {

@@ -175,7 +175,7 @@ const Header = () => {
               }}
             />
             {profileToggle && (
-              <div className="visible md:hidden absolute w-[95%] z-30 -ml-[81%] text-center -mb-72 rounded-lg shadow-md bg-gradient-to-t from-black p-2">
+              <div className="visible md:hidden  absolute w-[95%] z-30 -ml-[81%] text-center -mb-72 rounded-lg shadow-md bg-gradient-to-t from-black p-2">
                 <h1 className="py-1 px-3 my-4 bg-red-500 rounded-lg shadow-lg text-white mx-1 cursor-pointer">
                   {currentUser?.name}
                 </h1>
