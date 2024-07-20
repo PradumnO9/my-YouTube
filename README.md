@@ -29,6 +29,7 @@
 - Fetch particular video details for watch page
 - Implement Live Chat Functionality like YouTube
 - Lazy loading for faster load
+- Responsive for mobile size => using Tailwind
 
 # Clone 
 

@@ -1,13 +1,21 @@
+import { lazy, Suspense } from "react";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import MainContainer from "./components/MainContainer/MainContainer";
-import WatchPage from "./components/WatchPage/WatchPage";
 import Body from "./components/Body";
-import LiveChat from "./components/Comments/LiveChat";
 import Login from "./components/Login";
 import appStore from "./redux/appStore";
-import CommentsContainer from "./components/Comments/CommentsContainer";
+import LoadingSpinner from "./utils/LoadingSpinner";
+import Shimmer from "./utils/Shimmer";
+
+const LiveChat = lazy(() => import("./components/Comments/LiveChat"));
+const WatchPage = lazy(() => import("./components/WatchPage/WatchPage"));
+const CommentsContainer = lazy(() =>
+  import("./components/Comments/CommentsContainer")
+);
+const MainContainer = lazy(() =>
+  import("./components/MainContainer/MainContainer")
+);
 
 const appRouter = createBrowserRouter([
   {
@@ -16,27 +24,43 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/login",
-        element: <Login />
+        element: <Login />,
       },
       {
         path: "/",
-        element: <MainContainer />
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <MainContainer />
+          </Suspense>
+        ),
       },
       {
         path: "/watch",
-        element: <WatchPage />
+        element: (
+          <Suspense fallback={<LoadingSpinner />}>
+            <WatchPage />
+          </Suspense>
+        ),
       },
       {
         path: "/live-chat",
-        element: <LiveChat />
+        element: (
+          <Suspense fallback={<LoadingSpinner />}>
+            <LiveChat />
+          </Suspense>
+        ),
       },
       {
         path: "/nested-comments",
-        element: <CommentsContainer />
-      }
-    ]
-  }
-])
+        element: (
+          <Suspense fallback={<LoadingSpinner />}>
+            <CommentsContainer />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+]);
 
 function App() {
   return (

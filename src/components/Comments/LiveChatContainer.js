@@ -26,7 +26,7 @@ const LiveChatContainer = () => {
 
   return (
     <div>
-      <div className="mx-2 p-2 w-full h-[450px] border border-black bg-slate-100  rounded-tl-lg rounded-tr-lg overflow-y-scroll flex flex-col-reverse">
+      <div className="md:mx-2 mt-2 md:my-0 p-2 w-[98%] md:w-full h-[450px] border border-black bg-slate-100 rounded-tl-lg rounded-tr-lg overflow-y-scroll flex flex-col-reverse">
         {chatMessages.map((chat, index) => {
           return (
             <LiveChatMessage
@@ -38,7 +38,7 @@ const LiveChatContainer = () => {
         })}
       </div>
       <form
-        className="w-full p-2 ml-2 border border-black  rounded-bl-lg rounded-br-lg flex"
+        className="w-[98%] md:w-full p-2 md:ml-2 border border-black  rounded-bl-lg rounded-br-lg flex"
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(

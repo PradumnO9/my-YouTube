@@ -6,11 +6,11 @@ const Comments = () => {
   const videoComments = useSelector((store) => store.videos.videoComments);
   if (!videoComments) return;
   return (
-    <div>
+    <div className="w-[95%] md:w-full">
       <h1 className="font-bold text-2xl py-2">
         {videoComments.length} Comments
       </h1>
-      <div className="h-56 overflow-y-scroll buttonList-scroll md:h-full">{videoComments.map((comment) => {
+      <div className="h-56 overflow-y-scroll buttonList-scroll w-full md:h-full">{videoComments.map((comment) => {
         return (
           <OneComment
             key={comment.id}

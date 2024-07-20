@@ -144,7 +144,6 @@ const Header = () => {
                 src="https://cdn-icons-png.flaticon.com/256/149/149309.png"
               />
             </div>
-
             {showSuggestions && (
               <div className="absolute bg-white py-2 shadow-lg border border-gray-100 rounded-xl w-[30rem] z-30">
                 <ul>
@@ -183,6 +182,7 @@ const Header = () => {
                 <Link
                   className="px-[43%] py-2 m-2 bg-green-500 rounded-lg font-bold text-white hover:bg-green-400"
                   to="/"
+                  onClick={() => {setProfileToggle(!profileToggle)}}
                 >
                   Home
                 </Link>
@@ -206,6 +206,7 @@ const Header = () => {
                     className="border border-gray-400 rounded-r-full bg-gray-300 hover:bg-gray-200 px-3 py-2 cursor-pointer"
                     onClick={() => {
                       dispatch(addSearchText(searchQuery));
+                      setProfileToggle(!profileToggle)
                     }}
                     alt="search"
                     width={50}
@@ -215,6 +216,7 @@ const Header = () => {
                 <Link
                   className="px-[41%] py-2 m-2 bg-purple-500 rounded-lg font-bold text-white hover:bg-green-400"
                   to="/live-chat"
+                  onClick={() => {setProfileToggle(!profileToggle)}}
                 >
                   LiveChat
                 </Link>

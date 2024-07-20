@@ -9,6 +9,7 @@ import useVideoDetails from "../../hooks/useVideoDetails";
 import { PiShareFatLight } from "react-icons/pi";
 import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
+import LoadingSpinner from "../../utils/LoadingSpinner";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -22,15 +23,15 @@ const WatchPage = () => {
   useVideoComments(searchParams);
 
   const videoDetails = useSelector((store) => store.videos.videoDetails);
-  if (!videoDetails) return <h1>Loading...</h1>;
+  if (!videoDetails) return <LoadingSpinner />;
   const { channelTitle, title, description } = videoDetails[0]?.snippet;
 
   return (
     <div className="md:flex my-5">
-      <div className="ml-10 w-4/6">
+      <div className="ml-2 md:ml-10 w-full md:w-4/6">
         <div>
           <iframe
-            className="rounded-xl md:w-[900px] md:h-[500px]"
+            className="rounded-xl w-[96%] h-[300px] md:w-[900px] md:h-[500px]"
             src={`https://www.youtube.com/embed/${searchParams.get(
               "v"
             )}?autoplay=1`}
@@ -41,13 +42,15 @@ const WatchPage = () => {
           ></iframe>
         </div>
         <div className="py-3">
-          <h1 className="font-bold text-2xl">{title}</h1>
+          <h1 className="font-bold text-xl md:text-2xl">{title}</h1>
           <div className="flex items-center py-2">
-            <h1 className="font-bold text-md">{channelTitle}</h1>
-            <button className="bg-black text-white px-3 py-2 rounded-3xl hover:bg-opacity-85 ml-3">
-              Subscribe
-            </button>
-            <div className="flex ml-[51%] cursor-pointer p-2 bg-gray-300 rounded-3xl hover:bg-gray-200">
+            <div className="ml-[2%] md:flex items-center">
+              <h1 className="font-bold text-lg text-center">{channelTitle}</h1>
+              <button className="bg-black text-white px-3 py-2 rounded-3xl hover:bg-opacity-85 ml-0 md:ml-3">
+                Subscribe
+              </button>
+            </div>
+            <div className="flex ml-[23%] md:ml-[51%] cursor-pointer p-2 bg-gray-300 rounded-3xl hover:bg-gray-200">
               <button className="px-2">
                 <AiOutlineLike size={27} />
               </button>
@@ -61,7 +64,7 @@ const WatchPage = () => {
             </div>
           </div>
           {description && (
-            <p className="bg-gray-200 p-2 rounded-lg h-32 overflow-y-auto">
+            <p className="bg-gray-200 p-2 w-[95%] md:w-full rounded-lg h-32 overflow-y-auto">
               {description}
             </p>
           )}
