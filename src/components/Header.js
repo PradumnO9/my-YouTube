@@ -11,6 +11,7 @@ import { CiSearch } from "react-icons/ci";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import useVideosUsingSearch from "../hooks/useVideosUsingSearch";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -26,6 +27,9 @@ const Header = () => {
   const handleHamBurgerToggle = () => {
     dispatch(toggleMenu());
   };
+
+  const onlineStatus = useOnlineStatus();
+  console.log(onlineStatus);
 
   // updating redux store => searchVideos
   useVideosUsingSearch(searchText);
@@ -166,6 +170,11 @@ const Header = () => {
       <div className="col-span-1 flex items-center">
         {currentUser && (
           <>
+            {onlineStatus ? (
+              <span className="w-3 h-3 me-3 rounded-full absolute ml-8 mb-6 shadow-md bg-green-500"></span>
+            ) : (
+              <span className="w-3 h-3 me-3 rounded-full absolute ml-8 mb-6 shadow-md bg-gray-200"></span>
+            )}
             <img
               className="w-10 h-10 mr-5 md:mr-0 rounded-full cursor-pointer md:cursor-text"
               alt="profile"
@@ -182,7 +191,9 @@ const Header = () => {
                 <Link
                   className="px-[43%] py-2 m-2 bg-green-500 rounded-lg font-bold text-white hover:bg-green-400"
                   to="/"
-                  onClick={() => {setProfileToggle(!profileToggle)}}
+                  onClick={() => {
+                    setProfileToggle(!profileToggle);
+                  }}
                 >
                   Home
                 </Link>
@@ -206,7 +217,7 @@ const Header = () => {
                     className="border border-gray-400 rounded-r-full bg-gray-300 hover:bg-gray-200 px-3 py-2 cursor-pointer"
                     onClick={() => {
                       dispatch(addSearchText(searchQuery));
-                      setProfileToggle(!profileToggle)
+                      setProfileToggle(!profileToggle);
                     }}
                     alt="search"
                     width={50}
@@ -216,7 +227,9 @@ const Header = () => {
                 <Link
                   className="px-[41%] py-2 m-2 bg-purple-500 rounded-lg font-bold text-white hover:bg-green-400"
                   to="/live-chat"
-                  onClick={() => {setProfileToggle(!profileToggle)}}
+                  onClick={() => {
+                    setProfileToggle(!profileToggle);
+                  }}
                 >
                   LiveChat
                 </Link>

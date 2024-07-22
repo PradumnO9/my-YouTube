@@ -22,14 +22,15 @@
 - Use Tailwind CSS
 - Getting popular video data using YouTube API
 - Add Shimmer UI before loading video data
-- Search using -> live API, Debouncing, Caching
-- Added Side Video cards for watch page
-- Custom Hook -> usePopularVideos, useVideoComments, useVideoDetails, useVideoUsingSearch
-- Successfully fetch top 50 comments for a particular video
+- Search using -> live API, Debouncing, Caching (to Redux store)
+- Side Video cards for watch page
+- Custom Hook -> usePopularVideos, useVideoComments, useVideoDetails, useVideoUsingSearch, useOnlineStatus
+- Showing top 50 comments for a particular video based on VideoId
 - Fetch particular video details for watch page
 - Implement Live Chat Functionality like YouTube
 - Lazy loading for faster load
 - Responsive for mobile size => using Tailwind
+- Online/Offline Functionality
 
 # App Structure
 
