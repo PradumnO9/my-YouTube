@@ -1,5 +1,16 @@
 # My-YouTube
 
+# Tech Stack
+
+- FrontEnd
+  - React, Tailwind CSS
+- BackEnd
+  - YouTube live API's
+    - PopularVideos
+    - Search using search query
+    - Video Details
+    - Video Comment
+
 # Important
 
 - Enable YouTube Data API V3
@@ -22,6 +33,7 @@
 - Use Tailwind CSS
 - Getting popular video data using YouTube API
 - Add Shimmer UI before loading video data
+- Redux => to manage data globally
 - Search using -> live API, Debouncing, Caching (to Redux store)
 - Side Video cards for watch page
 - Custom Hook -> usePopularVideos, useVideoComments, useVideoDetails, useVideoUsingSearch, useOnlineStatus
