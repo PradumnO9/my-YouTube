@@ -1,15 +1,15 @@
 # My-YouTube
 
+- Video Streaming platform
+- YouTube like UI, responsive for mobile devices
+- App URL => https://my-cf8a9.web.app/login
+
 # Tech Stack
 
 - FrontEnd
   - React, Tailwind CSS
 - BackEnd
   - YouTube live API's
-    - PopularVideos
-    - Search using search query
-    - Video Details
-    - Video Comment
 
 # Important
 
